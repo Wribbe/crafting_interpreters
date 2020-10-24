@@ -6,7 +6,7 @@
 
 
 struct dllist *
-_dllist_create(const char * str)
+_create(const char * str)
 {
   struct dllist * node = malloc(sizeof(struct dllist));
   if (node == NULL) {
@@ -27,10 +27,19 @@ _dllist_create(const char * str)
 }
 
 
+void
+_free(struct dllist * node){
+  if (node->str != NULL) {
+    free(node->str);
+  }
+  free(node);
+}
+
+
 struct dllist *
 dllist_init(const char * str)
 {
-  struct dllist * head = _dllist_create(str);
+  struct dllist * head = _create(str);
   head->next = head;
   head->prev = head;
   return head;
@@ -40,7 +49,7 @@ dllist_init(const char * str)
 void
 dllist_append(struct dllist * head, const char * str)
 {
-  struct dllist * last_new = _dllist_create(str);
+  struct dllist * last_new = _create(str);
   struct dllist * last = head->prev;
 
   last_new->next = head;
@@ -54,11 +63,24 @@ dllist_append(struct dllist * head, const char * str)
 void
 dllist_insert_after(struct dllist * node, const char * str)
 {
-  struct dllist * new = _dllist_create(str);
+  struct dllist * new = _create(str);
   new->prev = node;
   new->next = node->next;
   new->next->prev = new;
   new->prev->next = new;
+}
+
+
+struct dllist *
+dllist_unlink(struct dllist * node){
+  struct dllist * ret = NULL;
+  if (node->next != node) {
+    node->prev->next = node->next;
+    node->next->prev = node->prev;
+    ret = node->prev;
+  }
+  _free(node);
+  return ret;
 }
 
 
@@ -67,11 +89,8 @@ dllist_free(struct dllist * node_start)
 {
   struct dllist * current = node_start;
   for(;;) {
-    if (current->str != NULL) {
-      free(current->str);
-    }
     struct dllist * next = current->next;
-    free(current);
+    _free(current);
     current = next;
     if (current == node_start) {
       break;

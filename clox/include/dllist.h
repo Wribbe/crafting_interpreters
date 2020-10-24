@@ -13,6 +13,9 @@ dllist_init(const char * str);
 struct dllist *
 dllist_find(struct dllist * dllist, const char * str);
 
+struct dllist *
+dllist_unlink(struct dllist * node);
+
 void
 dllist_append(struct dllist * dllist, const char * str);
 

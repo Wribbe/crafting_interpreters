@@ -18,5 +18,8 @@ main(void)
 
   printf("%s\n", node_third->next->str);
 
+  list = dllist_unlink(list);
+  printf("%s\n", list->str);
+
   dllist_free(list);
 }
