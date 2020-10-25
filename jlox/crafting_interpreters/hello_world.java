@@ -1,4 +1,4 @@
-package src.classes;
+package crafting_interpreters;
 
 public class hello_world {
 	public static void main(String[] args) {
