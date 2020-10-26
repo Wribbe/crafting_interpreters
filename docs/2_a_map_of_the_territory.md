@@ -137,3 +137,16 @@ generated and compiled with a compiler for that language.
 **JIT** -- Compile bytecode to native code supported by the architecture at
 runtime. Can be coupled with profiling in order to figure out which part of a
 the program flow needs to be compiled and/or optimized.
+
+
+## Compilers and Interpreters
+
+What is the difference between a compiler and an interpreter?
+
+**Compiling** -- the _implementation technique_ of translating one type of
+source code to another and not executing the result, that is left to the user.
+
+**Interpreter** -- Runs at once by executing the given source-code directly.
+
+**Compiling + Interpreter** - CPython _is_ an interpreter that _has_ a
+compiler.
