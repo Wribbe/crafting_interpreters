@@ -6,5 +6,5 @@ Nystrom.
 
 ## Section notes
 
-[Introduction](docs/1_introduction.md)
-[A Map of the Territory](docs/2_a_map_of_the_territory.md)
+1. [Introduction](docs/1_introduction.md)
+1. [A Map of the Territory](docs/2_a_map_of_the_territory.md)
