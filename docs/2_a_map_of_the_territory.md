@@ -94,3 +94,13 @@ language's semantics without the chipset bagage.
 With bytecode there are two ways forward:
 * Use it as an intermediary and write a mini-compiler for each target. (fast)
 * Writing a virtual machine that runs the bytecode. (portable)
+
+### Runtime
+
+At this point the code can be executed, either start up the VM and load the
+program if it's bytecode, or if it is native code, tell the operating system to
+load the code and execute.
+
+If the codes makes use of any language-features like garbage collection or
+type-checking, this is where these systems are initialized and managed -> the
+**runtime**.
