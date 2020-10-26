@@ -150,3 +150,15 @@ source code to another and not executing the result, that is left to the user.
 
 **Compiling + Interpreter** - CPython _is_ an interpreter that _has_ a
 compiler.
+
+# Challenges
+
+1. Pick an open source of a language you like. Download the source code and
+   poke around in it. Try to find the code that implements the scanner and
+   parser. Are they hand-written, or generated using tools like Lex and Yacc?
+   (look for .l or .y files).
+2. Just-in-time compilation tend to be the fastest way to implement a
+   dynamically-typed language, but not all of them use it. What reason are
+   there to _not_ JIT?
+3. Most Lisp implementations that compile to C also contain an interpreter that
+   lets them execute Lisp code on the fly as well. Why?
