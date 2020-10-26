@@ -162,3 +162,21 @@ compiler.
    there to _not_ JIT?
 3. Most Lisp implementations that compile to C also contain an interpreter that
    lets them execute Lisp code on the fly as well. Why?
+
+# Answers to challenges
+
+_Answer 1_
+
+Picked language: [Python](https://github.com/python/cpython).
+* **Scanner**: Hand-written C, [cpython/Parser/tokenizer.c](https://github.com/python/cpython/blob/master/Parser/tokenizer.c)
+* **Parser**: Hand-written C, [cpython/Parser/parser.c](https://github.com/python/cpython/blob/master/Parser/parser.c)
+
+_Answer 2_
+
+* Added overhead on startup and possibly runtime.
+* Complexities due to requirement to be 'just-in-time'.
+
+_Answer 3_
+
+Easier to do iterative development with a script that can be reloaded instead
+of having to re-compile the code in order to have the changes take effect.
