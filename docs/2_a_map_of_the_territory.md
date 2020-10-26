@@ -117,7 +117,7 @@ No way to store information and does not revisit any already parsed part of the
 the source.
 
 
-### Tre-walk interpreters
+### Tree-walk interpreters
 
 Sometimes it's possible to execute code as soon as the AST has been generated.
 The interpreter walks the syntax-tree evaluating nodes from branch to leaf.
