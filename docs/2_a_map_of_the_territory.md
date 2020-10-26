@@ -80,6 +80,7 @@ Skipped in this book, but can search for:
 * dead code elimination
 * loop unrolling
 
+
 ### Code generation
 
 **generating code** or **codegen** is where the source finally becomes code
@@ -95,6 +96,7 @@ With bytecode there are two ways forward:
 * Use it as an intermediary and write a mini-compiler for each target. (fast)
 * Writing a virtual machine that runs the bytecode. (portable)
 
+
 ### Runtime
 
 At this point the code can be executed, either start up the VM and load the
@@ -104,3 +106,34 @@ load the code and execute.
 If the codes makes use of any language-features like garbage collection or
 type-checking, this is where these systems are initialized and managed -> the
 **runtime**.
+
+
+## Shortcuts and Alternate Routes
+
+### Single-pass compilers
+
+Due to resource constraints, no intermediate representation is generated.
+No way to store information and does not revisit any already parsed part of the
+the source.
+
+
+### Tre-walk interpreters
+
+Sometimes it's possible to execute code as soon as the AST has been generated.
+The interpreter walks the syntax-tree evaluating nodes from branch to leaf.
+Mostly used in learning contexts due to the slow speed, not used for
+general-purpose languages.
+
+
+### Transpilers
+
+In this case another language is used as the intermediary. Instead of producing
+a bytecode middle-step, a syntactically correct string of the other language is
+generated and compiled with a compiler for that language.
+
+
+### Just-in-time compilation
+
+**JIT** -- Compile bytecode to native code supported by the architecture at
+runtime. Can be coupled with profiling in order to figure out which part of a
+the program flow needs to be compiled and/or optimized.
