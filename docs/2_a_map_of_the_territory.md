@@ -87,3 +87,10 @@ that the CPU can run, the **back end**. Can either run on the chipset directly
 (lightning fast) or run on an intermediary virtual machine (portable).
 **bytecode** are synthetic instructions that are designed to map closely to the
 language's semantics without the chipset bagage.
+
+
+### Virtual machine
+
+With bytecode there are two ways forward:
+* Use it as an intermediary and write a mini-compiler for each target. (fast)
+* Writing a virtual machine that runs the bytecode. (portable)
