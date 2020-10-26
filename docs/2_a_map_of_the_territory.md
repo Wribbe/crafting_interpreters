@@ -81,3 +81,9 @@ Skipped in this book, but can search for:
 * loop unrolling
 
 ### Code generation
+
+**generating code** or **codegen** is where the source finally becomes code
+that the CPU can run, the **back end**. Can either run on the chipset directly
+(lightning fast) or run on an intermediary virtual machine (portable).
+**bytecode** are synthetic instructions that are designed to map closely to the
+language's semantics without the chipset bagage.
