@@ -47,13 +47,13 @@ If the data types are atoms, expressions are molecules.
 ### Arithmetic
 
 **Infix binary**
-* **addition**: <operand> + <operand>
-* **subtraction**: <operand> - <operand>
-* **multiplication**: <operand> * <operand>
-* **division**: <operand> / <operand>
+* **addition**: `<operand> + <operand>`
+* **subtraction**: `<operand> - <operand>`
+* **multiplication**: `<operand> * <operand>`
+* **division**: `<operand> / <operand>`
 
 **Prefix unary**:
-* **subtraction**: -<operand>
+* **subtraction**: `-<operand>`
 
 
 ### Comparisons and equality
@@ -61,6 +61,7 @@ If the data types are atoms, expressions are molecules.
 Won't do implicit conversions, `Type1 != Type2`.
 
 **Comparing** (Numbers): `<, <=, >=, >`
+
 **Equality** (Any type): `== !=`
 
 
@@ -69,6 +70,8 @@ Won't do implicit conversions, `Type1 != Type2`.
 **short-circuit** - If the first operand evaluates, return that one and don't
 even evaluate the other.
 
-`!` - not operator - _prefix
+`!` - not operator - _prefix_
+
 `and` - and operator - _infix_
+
 `or` - or operator - _infix_
