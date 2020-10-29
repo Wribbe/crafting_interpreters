@@ -22,3 +22,26 @@ something, each blob -> **lexeme**.
 
 
 ### Token type
+
+**keyword** - _reserved_ word that means something special for the parser.
+
+### Literal value
+
+Scanner has to process all the characters in order to identify correctly, might
+as well create a runtime-object that can be used by the interpreter.
+
+
+### Location information
+
+Need to start tracking here in order to display where an error occurred later.
+Line-number fine for this simple implementation, a more advanced implementation
+could add column and length too.
+
+
+## Regular Languages and Expressions
+
+Scanner built around a loop: start at first character -> identify the lexeme ->
+emit a token -> repeat.
+
+**lexical grammar** - the rules that determine which group of characters that
+should be lexemes.
