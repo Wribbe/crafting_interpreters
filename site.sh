@@ -1,2 +1,2 @@
 #!/bin/sh
-qutebrowser https://craftinginterpreters.com/scanning.html
+qutebrowser https://craftinginterpreters.com/scanning.html&
