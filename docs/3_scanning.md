@@ -45,3 +45,11 @@ emit a token -> repeat.
 
 **lexical grammar** - the rules that determine which group of characters that
 should be lexemes.
+
+## Reserved Words and Identifiers
+
+**maximal munch** - If more than one grammar can match,
+_the one that matches the most characters wins_.
+
+**reserved word** - Hard to separate identifier from reserved word until
+reaching the end of the identifier.
