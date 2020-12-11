@@ -1,2 +1,2 @@
 #!/usr/bin/sh
-java com.craftinginterpreters.lox.Lox test.lox
+make && java com.craftinginterpreters.lox.Lox test.lox
