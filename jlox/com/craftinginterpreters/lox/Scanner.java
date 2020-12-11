@@ -66,7 +66,6 @@ class Scanner {
 					while (peek() != '\n' && !isAtEnd()) advance();
 				} else if (match('*')) {
 					comment_count++;
-					System.out.println(comment_count);
 					while(comment_count > 0 && !isAtEnd()) {
 						advance();
 						if (peek() == '/' && peekNext() == '*') {
