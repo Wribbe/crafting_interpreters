@@ -66,13 +66,17 @@ class Scanner {
 					while (peek() != '\n' && !isAtEnd()) advance();
 				} else if (match('*')) {
 					comment_count++;
-					while(comment_count > 0 && !isAtEnd()) {
+					while(comment_count > 0) {
 						advance();
 						if (peek() == '/' && peekNext() == '*') {
 							comment_count++;
 						}
 						if (peek() == '*' && peekNext() == '/') {
 							comment_count--;
+						}
+						if (isAtEnd()) {
+							Lox.error(line, "Multi-line comment not closed.");
+							return;
 						}
 					}
 					advance();
