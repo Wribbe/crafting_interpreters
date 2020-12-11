@@ -53,3 +53,19 @@ _the one that matches the most characters wins_.
 
 **reserved word** - Hard to separate identifier from reserved word until
 reaching the end of the identifier.
+
+## Challanges
+
+1. The lexical grammars of Python and Haskell are not regular. What does htat
+   mean? _non-regular, there are multiple ways to do things._
+2. How does space affect CoffeeScript, Ruby and the C preprocessor?
+   _CoffeScript_ -- Significant whitespace, delimits blocks of code. _Ruby_ --
+   Some method calls (usually single argument) can be called without
+   parenthesis, if it's ambiguous the space between calls can make it work.
+   _C-preprocessor_ -- In `#define f() x is different from #define f () x" but
+   when calling, f() and f     () are the same.
+3. Significant whitespace if your have a language like Python, comments could
+   include processor directives, or possibly useful when generating
+   documentation?
+4. Main problem is making sure that you match the number of opening and closing
+   comment symbols.

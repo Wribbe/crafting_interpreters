@@ -37,6 +37,7 @@ class Scanner {
 
 	private void scanToken() {
 		char c = advance();
+		int comment_count = 0;
 		switch (c) {
 			case '(': addToken(LEFT_PAREN); break;
 			case ')': addToken(RIGHT_PAREN); break;
@@ -63,6 +64,20 @@ class Scanner {
 				if (match('/')) {
 					// A comment goes until the end of the line.
 					while (peek() != '\n' && !isAtEnd()) advance();
+				} else if (match('*')) {
+					comment_count++;
+					System.out.println(comment_count);
+					while(comment_count > 0 && !isAtEnd()) {
+						advance();
+						if (peek() == '/' && peekNext() == '*') {
+							comment_count++;
+						}
+						if (peek() == '*' && peekNext() == '/') {
+							comment_count--;
+						}
+					}
+					advance();
+					advance();
 				} else {
 					addToken(SLASH);
 				}
@@ -175,5 +190,16 @@ class Scanner {
 	private char advance() {
 		current++;
 		return source.charAt(current - 1);
+	}
+
+	private boolean isAlpha(char c) {
+		return
+			(c >= 'a' && c <= 'z') ||
+			(c >= 'A' && c <= 'Z') ||
+			 c == '_';
+	}
+
+	private boolean isAlphaNumeric(char c) {
+		return isAlpha(c) || isDigit(c);
 	}
 }
