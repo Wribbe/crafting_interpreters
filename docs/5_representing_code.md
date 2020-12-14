@@ -65,4 +65,4 @@ allowed to choose whichever.
 Codifying grammars is usually done by using BNF (Backus-Naur form) or a
 flavoured version of it.
 
-Lox grammar is defined as: `name -> terminal1 "non-termia" terminal2 ;`
+Lox grammar is defined as: `name -> terminal1 "non-terminal" terminal2 ;`
