@@ -66,3 +66,45 @@ Codifying grammars is usually done by using BNF (Backus-Naur form) or a
 flavoured version of it.
 
 Lox grammar is defined as: `name -> terminal1 "non-terminal" terminal2 ;`
+
+Since there are rules that expand a non-terminal on both sides -> non-regular
+grammar. If the expansion is `X -> a X b` an we have `a X b` it can be
+recursively expanded `N` times to `a a [...] a X b [...] b`. Here the `N`
+number of the preceding `a`s needs to be matched by the same amount of
+consecutive `b`s. Which is not possible to do with a regular grammar/language
+since a regular language can _only repeat_, but _not count_.
+
+Since a rule can have multiple productions + the rule is free to reference
+itself directly or indirectly makes it possible to generate an infinite set of
+strings for a small set of defining rules.
+
+
+### Enhancing our notation
+
+Adding som syntactic sugar to the notation:
+
+`|` can be used to concatenate different productions.  
+`bread -> "toast" | "biscuits" | "English muffin" ;`
+
+`()` and `|` for grouping and selecting options within a grouping.  
+`protein -> ( "scrambeled" | "poached" | "fried" ) "eggs" ;`
+
+postfix `*` and `+` for repetition.  
+`crispness -> "really" "really"* ; // repeates 0-n`  
+`crispness -> "really"+ ; // repeats 1-n`
+
+postfix `?` for optional production (one or zero).  
+`breakfast -> protein ( "with" breakfast "on the side" )? ;`
+
+Updated grammar using the new sugar:
+```
+breakfast -> protein ( "with" breakfast "on the side" )? |  bread ;
+
+protein -> "realy"+ "crispy" "bacon"
+         | "sausage'
+         | ( "scrambled" | "poached" | "fried" ) eggs ;
+
+bread -> "toast" | "biscuits" | "English muffin" ;
+```
+
+### A Grammar for lox expressions

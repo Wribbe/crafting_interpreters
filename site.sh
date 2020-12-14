@@ -1,4 +1,3 @@
 #!/bin/sh
-#qutebrowser https://craftinginterpreters.com/scanning.html&
-URL=https://craftinginterpreters.com/representing-code.html
+URL=https://craftinginterpreters.com/representing-code.html#a-grammar-for-lox-expressions
 qutebrowser --target window $URL&
