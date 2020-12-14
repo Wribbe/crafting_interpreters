@@ -37,7 +37,7 @@ In the previous reglar-grammar each token was a character, and a string was a
 characters, and a string becomes a sequence of tokens in order to form an entire
 expression.
 
-Lexical grammar: Characters -(make up a)-> Token.
+Lexical grammar: Characters -(make up a)-> Token.  
 Syntactic grammar: Lexmes/tokens -(make up a)-> Expression.
 
 
@@ -65,4 +65,4 @@ allowed to choose whichever.
 Codifying grammars is usually done by using BNF (Backus-Naur form) or a
 flavoured version of it.
 
-Lox grammar is defined as: name -> terminal1 "non-termia" terminal2 ;
+Lox grammar is defined as: `name -> terminal1 "non-termia" terminal2 ;`
