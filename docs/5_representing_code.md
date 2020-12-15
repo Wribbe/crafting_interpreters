@@ -130,3 +130,7 @@ The above grammar is ambiguous, will be seen when parsing.
 *AST* -- _abstract_ syntax tree, does not include productions not needed later.  
 *parse tree*  -- every single production becomes a tree-node.
 
+
+## Metaprogramming the trees
+
+Tedious to write all the classes -> generate them.
