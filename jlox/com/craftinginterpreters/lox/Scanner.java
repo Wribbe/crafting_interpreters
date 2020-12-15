@@ -129,7 +129,7 @@ class Scanner {
 
 	private void identifier() {
     String text = source.substring(start, current);
-    Token type = keywords.get(text);
+    TokenType type = keywords.get(text);
     if (type == null) {
       type = IDENTIFIER;
     }
@@ -228,14 +228,4 @@ class Scanner {
 		return source.charAt(current - 1);
 	}
 
-	private boolean isAlpha(char c) {
-		return
-			(c >= 'a' && c <= 'z') ||
-			(c >= 'A' && c <= 'Z') ||
-			 c == '_';
-	}
-
-	private boolean isAlphaNumeric(char c) {
-		return isAlpha(c) || isDigit(c);
-	}
 }
