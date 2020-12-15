@@ -108,3 +108,25 @@ bread -> "toast" | "biscuits" | "English muffin" ;
 ```
 
 ### A Grammar for lox expressions
+
+Syntactical grammar > lexical grammar -> slog to implement it in one go. Will
+implement a subset and then built on it in coming chapters.
+
+```
+expression -> literal | unary | binary | grouping ;
+literal    -> NUMBER | STRING | "true" | "false" | "nil" ;
+grouping   -> "(" expression ")" ;
+unary      -> ( "-" | "!" ) expression ;
+binary     -> expression operator expression ;
+operator   -> "==" | "!=" | "<" | "<=" | ">" | ">=" | "+" | "-" | "*" | "/" ;
+```
+
+The above grammar is ambiguous, will be seen when parsing. 
+
+
+## Implementing Syntax Trees
+
+*syntax tree* -- The above grammar is recursive -> tree structure.  
+*AST* -- _abstract_ syntax tree, does not include productions not needed later.  
+*parse tree*  -- every single production becomes a tree-node.
+
