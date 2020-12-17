@@ -134,3 +134,25 @@ The above grammar is ambiguous, will be seen when parsing.
 ## Metaprogramming the trees
 
 Tedious to write all the classes -> generate them.
+
+
+## Working with Trees
+
+How to differentiate between different expressions with no type-enum? Could
+compare class instances, but that's slow. Could do abstract `interpret()`
+method, but that would not scale well, and forces different domains together.
+
+
+## The Expression Problem
+
+Object orientation -> easy to add row (new class). But hard to add a column,
+(new functionality) since you have to crack open all the rows (classes). Given
+pattern-matching, its easy to add columns (functionality) but hard to add new
+types (rows) since you need new pattern-matches for all the old functionality.
+
+
+## The Visitor pattern
+
+This pattern helps approximate a functional programming style within an object
+oriented language. By adding a layer of indirection, the new functionality for
+all the current classes can be added in one place.

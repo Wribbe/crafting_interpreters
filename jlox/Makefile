@@ -1,13 +1,20 @@
 .SUFFIXES:
 
 DIR_SRC := src
+PACKAGE := com/craftinginterpreters
 
-CLASSES = $(shell find -name "*.java")
+EXPR := ${PACKAGE}/lox/Expr.java
+
+CLASSES = $(shell find -name "*.java") ${EXPR}
 CLASSES := ${CLASSES:.java=.class}
+
 
 CC := javac
 
-all: ${CLASSES}
+all: ${EXPR} ${CLASSES}
 
 %.class : %.java Makefile
 	javac $(filter %.java,$^)
+
+${EXPR} : ${PACKAGE}/tool/GenerateAst.java
+	javac $^ && java ${^:.java=} $(dir $@)
