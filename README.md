@@ -11,3 +11,4 @@ Nystrom.
 3. [The Lox Language](docs/3_the_lox_language.md)
 4. [Scanning](docs/4_scanning.md)
 5. [Representing Code](docs/5_representing_code.md)
+6. [Parsing Expressions](docs/6_parsing_expressions.md)
