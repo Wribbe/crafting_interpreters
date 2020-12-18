@@ -156,3 +156,8 @@ types (rows) since you need new pattern-matches for all the old functionality.
 This pattern helps approximate a functional programming style within an object
 oriented language. By adding a layer of indirection, the new functionality for
 all the current classes can be added in one place.
+
+
+## Exercises
+
+// Skipped.
