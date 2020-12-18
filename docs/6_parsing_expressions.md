@@ -70,7 +70,9 @@ factor  -> factor ( "/" | "*" ) unary
 
 __left-recursive__: Since the first non-terminal of the rule-body is the same as
 the head -> this rule is `left-recursive`. Which will cause some trouble with
-the parser-technique the book is going to use.
+the parser-technique the book is going to use. (recursive descent -> if a
+method-function refers to itself the first thing it does (left-recursion) then
+the program goes into an infinite loop and runs out of stack-space.)
 
 Better to use the matching rule:
 ```
@@ -89,3 +91,40 @@ unary       -> ( "!" | "-" ) unary
              | primary;
 primary     -> NUMBER | STRING | "true" | "alse" | "nil" | "(" expression ")";
 ```
+
+
+## Recursive Descent Parsing
+
+__"L/R" - parsers:__
+* [LL(k)](https://en.wikipedia.org/wiki/LL_parser)
+* [LR(1)](https://en.wikipedia.org/wiki/LR_parser)
+* [LALR](https://en.wikipedia.org/wiki/LALR_parser)
+
+__"Exotic parsers:__
+* [parser combinators](https://en.wikipedia.org/wiki/Parser_combinator)
+* [Earley parsers](https://en.wikipedia.org/wiki/Earley_parser)
+* [the shunting yard algorithm](https://en.wikipedia.org/wiki/Shunting-yard_algorithm)
+* [packrat parsing](https://en.wikipedia.org/wiki/Parsing_expression_grammar)
+
+
+This project will use __recursive descent__ as the parser-methodology.
+
+__top-down__ vs __bottom-up__: recursive descent is a `top-down parser` since it
+starts from the outer most part of the syntax, here `expression` and works it
+way down the nested sub-expressions into the leaves. In contrast, __LR__ is a
+parser that starts from the leaves and then combines them into larger and larger
+chunks of syntax.
+
+When implementing a recursive descent parser the grammar is translated into
+imperative code where each rule becomes a function, and recursive calls call the
+same function again.
+```
+Terminal    -> Code that matches and consumes a token
+Nonterminal -> Call to rule's function
+|           -> switch / if statement
+* or +      -> while / for
+?           -> if statement
+```
+
+__predictive parsers__ -- Includes recursive descent, if the parser looks ahead
+to make a decision -> _predictive parser_.
