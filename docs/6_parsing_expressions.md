@@ -128,3 +128,36 @@ Nonterminal -> Call to rule's function
 
 __predictive parsers__ -- Includes recursive descent, if the parser looks ahead
 to make a decision -> _predictive parser_.
+
+
+## Syntax errors
+
+The parsers two jobs:
+* Produce a syntax tree if given a correct sequence of tokens.
+* Detect any errors and report to user if given a non-correct sequence of
+tokens.
+
+Additional hard requirements for the parser:
+* __Detect and report the error__
+* __Must not crash or hang__
+Additional requirements for a good parser.
+* __Be fast__
+* __Report as many errors as there are__ -- Easy to abort on first, but keep
+going.
+* __Minimize _cascade_ errors__ -- Don't report ghost-errors due to being of
+track from an initial error.
+
+__error recovery__ - The name of the process where an parser hits an error and
+tries to keep going in order to find later errors. Was more of a problem when
+parsing a program took hours->days.
+
+
+### Panic mode error recovery
+
+* __panic mode__ - The parser has seen at least one error
+* __synchronization__ - After entering panic mode, find the next sequence that
+matches the rule being parsed. Usually done between statements, which we don't
+have currently.
+
+
+### Entering panic mode
