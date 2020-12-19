@@ -160,4 +160,14 @@ matches the rule being parsed. Usually done between statements, which we don't
 have currently.
 
 
-### Entering panic mode
+### Synchronizing a recursive decent parser
+
+The parser state == the Java call-stack. In order to reset the state -> unwind
+the stack by throwing an exception and catching it where we want to retry, which
+is between statements.
+
+Boundary between statements generally signaled by _ending with a_`;` or starting
+with a keyword, e.g. `for`, `if`, `return`, `var`, etc.
+
+Since there is currently no support for statements, any error will unwind up to
+the top and stop the parsing.
